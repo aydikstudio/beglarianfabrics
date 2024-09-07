@@ -1,7 +1,13 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
-
+import { useDispatch, useSelector } from "react-redux";
 export default function Home() {
+
+  const questions = useSelector((state) => state.question.value);
+
+
   return (
     <div>
       <div className="flex justify-between">
@@ -47,7 +53,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col mt-4">
             <div>
-              112 questions out of 730 passed
+            {questions.filter((item) => item.active).length} questions out of {questions.length} passed
             </div>
             <div className="mt-2 flex flex-row">
               <div className="w-[37px] h-[6px] rounded-[5px] bg-[#52A754] mr-[3px]" />

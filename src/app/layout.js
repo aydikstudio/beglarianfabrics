@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import {Providers} from './GlobalRedux/provider';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,7 +25,9 @@ export default function RootLayout({ children }) {
         className={`flex  h-screen justify-center items-center `}
       >
         <div className="w-[360px] h-[800px]  pt-12 px-4 bg-[#F9F9F9]">
+   <Providers>
         {children}
+        </Providers>
         </div>
       </body>
     </html>
